@@ -1,0 +1,86 @@
+{
+  "version": "0.6.1",
+  "createdAt": "2026-10-29T14:52:27.252357+00:00",
+  "allRequiredLocalTestsPassed": true,
+  "tests": [
+    {
+      "test": "Build e Node",
+      "result": "PASS",
+      "evidence": [
+        "ℹ tests 30",
+        "ℹ fail 0",
+        "PWA built in dist/"
+      ]
+    },
+    {
+      "test": "WordPress e MariaDB",
+      "result": "PASS",
+      "evidence": [
+        "WORDPRESS INTEGRATION: 188 checks passed"
+      ]
+    },
+    {
+      "test": "Browser Fasi 1–4",
+      "result": "PASS",
+      "evidence": [
+        "PASS: mobile layout",
+        "CATALOG BROWSER: 39 checks passed",
+        "EXPLORER BROWSER: 87 checks passed",
+        "TRIAL BROWSER: 56 checks passed"
+      ]
+    },
+    {
+      "test": "UX e WCAG pubblico",
+      "result": "PASS",
+      "evidence": [
+        "UX: 41 checks passed; 17 axe audits"
+      ]
+    },
+    {
+      "test": "Worker/offline/aggiornamenti",
+      "result": "PASS",
+      "evidence": [
+        "PWA: 21 checks passed"
+      ]
+    },
+    {
+      "test": "Installazione ZIP e integrazione completa",
+      "result": "PASS",
+      "evidence": [
+        "TRIAL HTTP E2E: 12 checks passed",
+        "ADMIN HTTP E2E: 37 checks passed",
+        "ADMIN ACCESSIBILITY: 4 checks passed",
+        "ADMIN WCAG: 9 audits passed",
+        "RELEASE pretty: 18 checks passed",
+        "RELEASE plain: 21 checks passed",
+        "no extra SMTP message was sent"
+      ]
+    }
+  ],
+  "cleanInstallMethod": "Plugin_Upgrader on an empty plugin directory. Test bootstrap aborts unless installation returns true; no source plugin or separate PWA is copied in release mode.",
+  "phpSyntax": {
+    "sourceAndTests": 26,
+    "installedZip": 20
+  },
+  "lighthouse": {
+    "performance": 1,
+    "accessibility": 1,
+    "bestPractices": 1,
+    "seo": 1,
+    "lcpMs": 1659.1673999999998,
+    "cls": 0.0005648464006327424,
+    "tbtMs": 0,
+    "fcpMs": 1356.1116,
+    "bytes": 365115,
+    "requests": 25
+  },
+  "notVerified": [
+    "Public staging installation: network/access prerequisites pending",
+    "Actual Android/iPhone devices and Safari iOS",
+    "HTTPS certificate of external staging host"
+  ],
+  "notes": [
+    "Automatic WCAG tests retain the documented native TinyMCE toolbar exclusion; not a full WCAG certification.",
+    "No production changes, personal data, default accounts or passwords in delivered ZIPs."
+  ]
+}

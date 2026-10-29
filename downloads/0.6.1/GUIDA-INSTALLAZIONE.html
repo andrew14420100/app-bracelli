@@ -1,0 +1,65 @@
+<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guida Bracelli Club</title><style>body{max-width:850px;margin:32px auto;padding:0 20px;font:16px/1.7 system-ui;color:#1b222b}pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere}a{color:#164a8a}</style><pre># Bracelli Club — installazione semplice dei file ZIP
+
+Versione 0.6.1: tutte le funzionalità delle Fasi 1–6, più la distribuzione automatica della PWA. Non servono npm, compilazioni o terminale. Non installare sul sito ufficiale durante il collaudo.
+
+## 1. Quale file usare
+
+- **bracelli-club-plugin.zip**: caricalo nella bacheca di un WordPress temporaneo. Contiene plugin completo e PWA già pronta. È sufficiente questo file per provare l’intero progetto.
+- **bracelli-club-app.zip**: build statica separata, già pronta. Serve soltanto se vuoi ospitare la PWA in un’altra cartella dello stesso dominio, con un file manager o FTP. Non va caricato come plugin.
+
+Nei pacchetti non sono inclusi account, password, database, recapiti reali o dati dimostrativi già pubblicati. Il logo è quello ufficiale originale del 35° anniversario, con trasparenza esterna.
+
+## 2. Prepara il WordPress di prova
+
+Usa un WordPress temporaneo separato, con HTTPS valido, PHP 8.1+ e WordPress 6.5+, installazione di plugin ZIP e struttura WordPress standard. Non sono necessari piani a pagamento per il codice; verifica gratuità, scadenza e limiti del fornitore prima di creare un sito. I piani gratuiti attuali non sono stati verificati dal cloud perché i siti dei fornitori sono bloccati dalla sua rete.
+
+Lo staging indicato nella conversazione è `https://jaggedpeace.s2-tastewp.com/wp-admin/`. Il semplice possesso dell’URL non concede l’accesso: usa le credenziali fornite da TasteWP e non condividerle in chat. La raggiungibilità, le condizioni commerciali e l’installazione online restano da verificare quando rete e accesso saranno disponibili.
+
+Attiva la protezione con password/accesso privato nel pannello del fornitore, se disponibile. In WordPress vai in **Impostazioni → Lettura** e seleziona **Scoraggia i motori di ricerca**. Questo da solo non è una protezione di accesso. Utilizza una password amministrativa unica e non riciclare credenziali del sito ufficiale.
+
+## 3. Installa il plugin e apri l’app
+
+1. Nella bacheca temporanea apri **Plugin → Aggiungi nuovo plugin → Carica plugin**.
+2. Seleziona **bracelli-club-plugin.zip**, premi **Installa adesso**, poi **Attiva**.
+3. Apri **Bracelli Club → Apri app**.
+4. Premi **Apri Bracelli Club**. La pagina mostra anche l’indirizzo da aprire su smartphone.
+
+La PWA è già inclusa nel plugin. Il percorso standard è `/wp-content/plugins/bracelli-club/app/`, sullo stesso dominio di WordPress. Usa il collegamento mostrato dal pannello: è calcolato automaticamente anche con WordPress in una sottocartella. Non viene creata o modificata una pagina del sito né occorre configurare i permalink.
+
+Le API vengono collegate al WordPress sul quale hai installato il plugin, mai al sito ufficiale. Il service worker è confinato alla cartella dell’app e non controlla la bacheca. Se il plugin non è attivo, l’app chiede di attivarlo. Installazioni con `wp-content` spostata fuori dall’albero WordPress richiedono una configurazione specifica e non sono coperte dall’installazione automatica.
+
+La prima apertura mostra correttamente le sezioni vuote. I contenuti vanno inseriti nel pannello: non vengono inventate attività del Bracelli Club.
+
+## 4. Collaudo con dati esclusivamente DEMO
+
+1. In **Bracelli Club → Apri app**, su un host temporaneo riconosciuto, attiva **Intercetta tutte le email** e conferma che il sito è di prova. Poi salva. Vengono bloccate tutte le email WordPress, comprese quelle amministrative, e attivata la non indicizzazione. Mantieni comunque la protezione di accesso del fornitore.
+2. In **Istruttori** crea `DEMO — Istruttore` e pubblicalo.
+3. In **Discipline** crea `DEMO — Movimento`; inserisci una descrizione dichiaratamente dimostrativa, una fascia `DEMO Adulti`, obiettivo Explorer `wellbeing` e preferenza **Attività motorie**. Pubblica.
+4. In **Corsi** crea `DEMO — Corso prova`, collega la disciplina e l’istruttore, indica fascia `DEMO Adulti`, età Explorer minima 18 e massima 80, livello Base; spunta corso attivo e lezione di prova. Pubblica.
+5. In **Calendario** aggiungi un orario dimostrativo, ad esempio lunedì 09:00–10:00, collegando quel corso e istruttore. Non presentarlo come orario effettivo del centro.
+6. In **Contatti e richieste** usa solo indirizzi riservati come `segreteria@example.test`, `info@example.test` e `privacy@example.test`; per il telefono usa un numero fittizio come `+12025550123`. Etichetta indirizzo/orari/titolare come DEMO. Compila la configurazione privacy come test, poi abilita il modulo. Non copiare questa informativa dimostrativa su un servizio reale.
+
+Per provare il quiz: **Per me → 30 anni → Benessere → Attività motorie → Lunedì**. Per la richiesta usa `Referente TEST`, `Fittizio`, `referente@example.test` e `+12025550124`. Compila la fascia, leggi l’informativa, attendi qualche secondo e invia. **Richiesta ricevuta** non prenota né conferma un appuntamento.
+
+In **Richieste di prova** troverai il record, potrai cambiare stato e note, filtrare ed esportare secondo i permessi. In **Apri app** vedrai l’evento tecnico della notifica intercettata. In questa modalità “sent/accepted” significa **catturata internamente**: nessuna email viene spedita. Il corpo e i recapiti non sono conservati nel registro tecnico. Sono mostrati al massimo 30 eventi delle ultime 24 ore. Senza cattura, `wp_mail` usa il trasporto dell’hosting: non impostare destinatari reali per il collaudo.
+
+Le funzioni di gestione richieste restano protette da login e capability WordPress. I visitatori della PWA non devono registrarsi. Non concedere l’account amministratore ai visitatori.
+
+## 5. Smartphone e PWA
+
+Apri l’indirizzo dell’app mostrato dal pannello, sullo smartphone. Se il fornitore protegge lo staging, autenticati prima. Su Android usa **Installa app** quando disponibile o il menu del browser; su iPhone usa **Safari → Condividi → Aggiungi alla schermata Home**.
+
+Prova navigazione, quiz, filtri, dettagli, orari, contatti e modulo. Dopo una prima apertura online, prova offline: si riapre la shell, gli orari già visualizzati sono indicati come da verificare e non vengono accodate richieste. L’app non salva dati personali nella cache. Gli aggiornamenti non devono interrompere un invio; con più schede aperte viene richiesto di chiuderle prima di aggiornare.
+
+Il collaudo automatico usa Chromium e server locali. Non equivale a prove su iPhone/Android fisici, Safari/iOS o certificato HTTPS del fornitore, che restano da eseguire sullo staging online.
+
+## 6. ZIP separato dell’app e aggiornamenti
+
+Il file app contiene `index.html`, CSS, JavaScript eseguibile, moduli condivisi, manifest, icone, logo, fallback e service worker. Per usarlo separatamente, carica il contenuto estratto in una cartella come `/club/` dello stesso dominio HTTPS. Il default API è `/wp-json/bracelli-club/v1`; per WordPress con URL REST differente usa l’app inclusa nel plugin, che rileva automaticamente il percorso.
+
+Non installare lo ZIP app dalla schermata Plugin e non aprire `index.html` con `file://`: servono un server HTTPS e WordPress. L’uso del solo ZIP plugin evita questo secondo caricamento.
+
+Per aggiornare il plugin usa la sostituzione della versione dalla bacheca, dopo backup dello staging. **Non disinstallarlo** per aggiornare: la disinstallazione esplicita elimina l’archivio personale secondo la policy già implementata. Nessuna nuova tabella o migrazione distruttiva è introdotta da questa distribuzione. I dati restano nel database WordPress temporaneo, soggetto alla scadenza del fornitore. Chiudi e riapri l’app per attivare il nuovo worker, oppure usa l’avviso di aggiornamento.
+
+Non sono inclusi QR code, registrazione visitatori, pagamenti, store o pubblicazione sul sito ufficiale.
+</pre></html>

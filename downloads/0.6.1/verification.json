@@ -1,0 +1,30 @@
+[
+  {
+    "archive": "bracelli-club-plugin.zip",
+    "valid": true,
+    "entries": 63,
+    "sha256": "d04018e9546f0bc5e87e6da8e2f43c95c1f42945ec8d7a4adae078f37565ae53",
+    "checks": [
+      "ZIP CRC",
+      "required compiled assets",
+      "all ES module dependencies",
+      "complete service worker shell",
+      "no test credentials/configuration/database",
+      "original logo bytes preserved"
+    ]
+  },
+  {
+    "archive": "bracelli-club-app.zip",
+    "valid": true,
+    "entries": 30,
+    "sha256": "25d36df6445bd324aa00b2a22ea767321d13c6a7f886133f4813c4d86fa48b26",
+    "checks": [
+      "ZIP CRC",
+      "required compiled assets",
+      "all ES module dependencies",
+      "complete service worker shell",
+      "no test credentials/configuration/database",
+      "original logo bytes preserved"
+    ]
+  }
+]
